@@ -27,15 +27,16 @@ function App() {
   }
 
 
-  // Handle submit button and PUT
+  // Handle like button and PUT route
   const upLikes = ( image, event ) => {
-    // event.preventDefault();
 
     console.log('You pressed the like button');
 
     axios.put(`/gallery/like/${image.id}`)
     .then(response => {
+      //increase likes by 1 on click
       image.likes += 1;
+      //Refresh image gallery
       getGalleryList();
     })
     .catch(error => {
@@ -52,7 +53,6 @@ function App() {
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
         <GalleryList galleryList={galleryList} upLikes={upLikes}/>
-        {/* <img src="images/goat_small.jpg"/> */}
       </div>
     );
 }
