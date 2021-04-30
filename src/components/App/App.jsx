@@ -27,12 +27,31 @@ function App() {
   }
 
 
+  // Handle submit button and PUT
+  const upLikes = ( image, event ) => {
+    // event.preventDefault();
+
+    console.log('You pressed the like button');
+
+    axios.put(`/gallery/like/${image.id}`)
+    .then(response => {
+      image.likes += 1;
+      getGalleryList();
+    })
+    .catch(error => {
+      alert('Could not update Like button');
+      console.log('Error updating Likes', error);
+    })
+    
+  }
+
+
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
-        <GalleryList galleryList={galleryList}/>
+        <GalleryList galleryList={galleryList} upLikes={upLikes}/>
         {/* <img src="images/goat_small.jpg"/> */}
       </div>
     );

@@ -2,14 +2,13 @@ import GalleryItem from '../GalleryItem/GalleryItem';
 import './GalleryList.css'
 
 
-function GalleryList(props) {
+function GalleryList({galleryList, upLikes}) {
 
-    const galleryList = props.galleryList;
 
     return(
-        <div class="images">
+        <div className="images">
             {galleryList.map(image => 
-            (<GalleryItem key={image.id} image={image}/>)
+            (<GalleryItem key={image.id} image={image} upLikes={upLikes}/>)
             )}
         </div>
     )

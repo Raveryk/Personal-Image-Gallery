@@ -10,10 +10,10 @@ Components
         [ ] GalleryList
             [x] export GalleryList
             [x] pass in gallery data via props
-            [ ] Iterate the list of gallery data
-            [ ] Source in GalleryItems
+            [x] Iterate the list of gallery data
+            [x] Source in GalleryItems
                 [ ] GalleryItem
-                    [ ] export GalleryItem
+                    [x] export GalleryItem
                     [ ] Swap the image with description on click - using conditional rendering
                     [ ] Display likes/like button per item
                     [ ] Use axios to update PUT when button is clicked
