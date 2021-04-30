@@ -1,0 +1,16 @@
+.images {
+    display: block;
+    float: left;
+    margin:3%;
+
+    
+}
+
+img {
+    border-radius: 8px;
+    border: 1px solid black;
+    padding: 5px;
+    width: 250px;
+    height: 250px;
+
+}
