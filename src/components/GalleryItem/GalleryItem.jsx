@@ -19,6 +19,8 @@ function GalleryItem({image, upLikes}) {
         }
     }
 
+// function
+
     
     
     return(
