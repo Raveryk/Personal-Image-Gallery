@@ -19,14 +19,25 @@ function GalleryItem({image, upLikes }) {
     }
 
 
+    // Function to conditionally render text displayed under button.
+    const buttonText = () => {
 
+        if(image.likes === 0) {
+            return <p>   </p>
+        } else if (image.likes ===1) {
+            return <p>{image.likes} person loves this!</p>
+        } else {
+            return <p>{image.likes} people love this!</p>
+        }
+        }
     
+
     
     
     return(
         <div className="oneImage">
         <div onClick={() => toggleImage()} >{ !imageClick ? <img src={image.path}/> : <section className="description" >{image.description}</section> }</div>
-        <div ><button type="submit" onClick={() => upLikes(image)}>Love It!!</button> {image.likes === 1 ? <p>{image.likes} person loves this!</p> : <p>{image.likes} people love this!</p>}</div></div>
+        <div ><button type="submit" className = "button" onClick={() => upLikes(image)}>Love It!!</button> {buttonText()} </div></div>
     )}
 
 

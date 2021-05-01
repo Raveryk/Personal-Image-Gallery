@@ -54,7 +54,7 @@ function App() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Gallery of My Life</h1>
+          <h1 className="App-title">REESE'S LIFE GALLERY</h1>
         </header>
         <GalleryList galleryList={galleryList} upLikes={upLikes} />
       </div>
