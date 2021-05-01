@@ -22,8 +22,8 @@ function GalleryItem({image, upLikes}) {
     
     
     return(
-        <div className="images">
-        <div onClick={() => toggleImage()} >{ !imageClick ? <img src={image.path} /> : <p className="description">{image.description}</p> }</div>
+        <div className="oneImage">
+        <div onClick={() => toggleImage()} >{ !imageClick ? <img src={image.path}/> : <section className="description" >{image.description}</section> }</div>
         <div ><p><button type="submit" onClick={() => upLikes(image)}>Love It!!</button> {image.likes} people love this!</p></div></div>
     )}
 
