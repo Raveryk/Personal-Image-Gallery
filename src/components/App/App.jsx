@@ -13,6 +13,7 @@ function App() {
   // Array to store all of the photos from the server
   const [galleryList, setGalleryList] = useState([]);
 
+
   //GET route to retrieve images from server
   const getGalleryList = () => {
     axios.get('/gallery')
@@ -24,6 +25,7 @@ function App() {
       alert('Error getting images.')
       console.log('Something went wrong GETting data from server:', error);
     })
+
   }
 
 
@@ -43,8 +45,10 @@ function App() {
       alert('Could not update Like button');
       console.log('Error updating Likes', error);
     })
-    
+
   }
+
+
 
 
     return (
@@ -52,7 +56,7 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
-        <GalleryList galleryList={galleryList} upLikes={upLikes}/>
+        <GalleryList galleryList={galleryList} upLikes={upLikes} />
       </div>
     );
 }
