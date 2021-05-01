@@ -4,9 +4,10 @@ import {useState} from 'react';
 
 function GalleryItem({image, upLikes }) {
 
+    //Container for my image click boolean value
     let [imageClick, setImageClick] = useState(false)
     
-         
+    //Function to toggle image and description
     const toggleImage = () => {
         console.log('You clicked the image');
         console.log(imageClick);
@@ -23,11 +24,11 @@ function GalleryItem({image, upLikes }) {
     const buttonText = () => {
 
         if(image.likes === 0) {
-            return <p>   </p>
+            return <p>No one has liked this yet!</p>
         } else if (image.likes ===1) {
-            return <p>{image.likes} person loves this!</p>
+            return <p>{image.likes} person likes this!</p>
         } else {
-            return <p>{image.likes} people love this!</p>
+            return <p>{image.likes} people like this!</p>
         }
         }
     

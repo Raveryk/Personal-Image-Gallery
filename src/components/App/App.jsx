@@ -6,6 +6,7 @@ import axios from 'axios';
 
 function App() {
 
+  //Renders page on initial page load
   useEffect(() => {
     getGalleryList()
   }, []);
@@ -47,9 +48,6 @@ function App() {
     })
 
   }
-
-
-
 
     return (
       <div className="App">

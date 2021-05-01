@@ -1,7 +1,7 @@
 import GalleryItem from '../GalleryItem/GalleryItem';
 import './GalleryList.css'
 
-
+// Component to iterate through the galleryList
 function GalleryList({ galleryList, upLikes }) {
 
 
