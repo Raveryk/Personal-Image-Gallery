@@ -3,4 +3,9 @@
     /* flex-wrap:wrap; */
     flex-direction:row;
     /* align-content:space-between; */
+    border-radius: 8px;
+    border: 1px solid black;
+    padding: 5px;
+    /* width: 250px;
+    height: 250px; */
 }

@@ -11,7 +11,7 @@ function GalleryItem({image, upLikes}) {
         console.log('You clicked the image');
         // clickCounter += 1;
         console.log(imageClick);
-        // //set state
+        // conditional to set up toggle between image and description
         if( imageClick === false ) {
         setImageClick(true)
         } else {
@@ -19,19 +19,7 @@ function GalleryItem({image, upLikes}) {
         }
     }
 
-    // onOrOffDuty = () => {
-    //     if(hero.onDuty) {
-    //         // need to return JSX
-    //         return <p>ON DUTY</p>;
-    //     } else {
-    //         // need to return JSX
-    //         return  <p>SLEEPING</p>;
-    //     }
-    // }
-
-
-    // !imageClick ? <img src={image.path} width="200" height="200"/> : <p>{image.description}</p>
-
+    
     
     return(
 
