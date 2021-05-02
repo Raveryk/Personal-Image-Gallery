@@ -1,6 +1,9 @@
 import '../AddGalleryItem/AddGalleryItem.css'
 import {useState} from 'react';
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
+import Input from '@material-ui/core/Input';
+
 
 
 function AddGalleryItem({ getGalleryList }) {
@@ -36,9 +39,9 @@ function AddGalleryItem({ getGalleryList }) {
     return(
         <div className="form">
            <form>
-               <input value={imagePath} type="url" placeholder="Image URL" onChange={(event) => setImagePath(event.target.value)}/>
-               <input value={imageDescription} type="text" placeholder="Description" onChange={(event) => setImageDescription(event.target.value)}/>
-               <button type="submit" onClick={addGalleryItem}>Add Image</button>
+               <Input value={imagePath} type="url" placeholder="Image URL" onChange={(event) => setImagePath(event.target.value)}/>
+               <Input value={imageDescription} type="text" placeholder="Description" onChange={(event) => setImageDescription(event.target.value)}/>
+               <Button disableElevation size="small" color="primary" variant="contained" type="submit" onClick={addGalleryItem}>Add Image</Button>
            </form>
         </div>
     )
