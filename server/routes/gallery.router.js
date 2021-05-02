@@ -42,4 +42,20 @@ router.get('/', (req, res) => {
     
 }); // END GET Route
 
+router.post('/', (req, res) => {
+    let newImage = req.body;
+    console.log('Adding new Image:', newImage);
+
+    const sqlText = `INSERT INTO "images" ("path", "description", "likes")
+                    VALUES ($1, $2, $3);`;
+    pool.query(sqlText, [newImage.path, newImage.description, newImage.likes])
+    .then(result => {
+        res.send(201);
+    })
+    .catch(error => {
+        console.log('Error Sending images to DB:', error);
+        res.sendStatus(500)
+    })
+})
+
 module.exports = router;
