@@ -32,13 +32,15 @@ function App() {
 
   }
 
+  //Request to add photo to DB
   const addGalleryItem = (newImage) => {
     newImage.preventDefault();
     console.log('Submitted:', imagePath, imageDescription);
-    
+    // Route to send data to server, then DB.
     axios.post('/gallery', {path: imagePath, description: imageDescription})
     .then(response => {
       console.log('You submitted an image!', response);
+      //Refresh gallery list
       getGalleryList();
     })
     .catch(error => {
@@ -69,6 +71,7 @@ function App() {
 
   const deleteImage = ( image ) => {
 
+    //Request to target image Id to delete image.
     axios.delete(`/gallery/like/${image.id}`)
     .then(response => {
       console.log('You deleted a photo!', response);
