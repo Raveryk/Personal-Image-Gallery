@@ -1,5 +1,9 @@
 import './GalleryItem.css';
 import {useState} from 'react';
+import Button from '@material-ui/core/Button';
+import Delete from '@material-ui/icons/Delete';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import Paper from '@material-ui/core/Paper';
 
 
 function GalleryItem({image, upLikes, deleteImage}) {
@@ -36,11 +40,11 @@ function GalleryItem({image, upLikes, deleteImage}) {
     
     
     return(
-        <div className="oneImage">
+        <Paper elevation={10} variant="outlined" className="oneImage">
         <div onClick={() => toggleImage()} >{ !imageClick ? <img src={image.path}/> : <section className="description" >{image.description}</section> }</div>
-        <div ><button type="submit" className = "likeButton" onClick={() => upLikes(image)}>Love It!!</button> 
-        <button className = "deleteButton" onClick={() => deleteImage(image)}>Delete</button>{ buttonText()} </div>
-        </div>
+        <div ><Button startIcon={<ThumbUpIcon />}type="submit" className = "likeButton" onClick={() => upLikes(image)}>Love It!!</Button> 
+        <Button startIcon={<Delete />}className = "deleteButton" onClick={() => deleteImage(image)}>delete</Button>{ buttonText()} </div>
+        </Paper>
     )}
 
 
