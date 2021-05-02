@@ -71,7 +71,7 @@ function App() {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">REESE'S LIFE GALLERY</h1>
+          <h1 className="App-title">REESE'S LIFE IN IMAGES</h1>
         </header>
         <AddGalleryItem getGalleryList={getGalleryList}/>
         <GalleryList galleryList={galleryList} upLikes={upLikes} deleteImage={deleteImage}/>
