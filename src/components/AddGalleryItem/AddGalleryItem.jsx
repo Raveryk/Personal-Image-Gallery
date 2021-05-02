@@ -41,7 +41,7 @@ function AddGalleryItem({ getGalleryList }) {
            <form>
                <Input value={imagePath} type="url" placeholder="Image URL" onChange={(event) => setImagePath(event.target.value)}/>
                <Input value={imageDescription} type="text" placeholder="Description" onChange={(event) => setImageDescription(event.target.value)}/>
-               <Button size="small" color="primary" variant="contained" type="submit" onClick={addGalleryItem}>Add Image</Button>
+               <Button disableElevation size="small" color="primary" variant="contained" type="submit" onClick={addGalleryItem}>Add Image</Button>
            </form>
         </div>
     )

@@ -42,7 +42,7 @@ function GalleryItem({image, upLikes, deleteImage}) {
     return(
         <Paper elevation={10} variant="outlined" className="oneImage">
         <div onClick={() => toggleImage()} >{ !imageClick ? <img src={image.path}/> : <section className="description" >{image.description}</section> }</div>
-        <div ><Button startIcon={<ThumbUpIcon />}type="submit" className = "likeButton" onClick={() => upLikes(image)}>Love It!!</Button> 
+        <div className="imageBottom"><Button startIcon={<ThumbUpIcon />}type="submit" className = "likeButton" onClick={() => upLikes(image)}>Love It!!</Button> 
         <Button startIcon={<Delete />}className = "deleteButton" onClick={() => deleteImage(image)}>delete</Button>{ buttonText()} </div>
         </Paper>
     )}
