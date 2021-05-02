@@ -5,6 +5,7 @@ import GalleryList from '../GalleryList/GalleryList';
 import AddGalleryItem from '../AddGalleryItem/AddGalleryItem';
 import axios from 'axios';
 
+
 function App() {
 
   //Renders page on initial page load
@@ -31,20 +32,22 @@ function App() {
 
   }
 
-  // const addGalleryItem = (newImage) => {
-  //   newImage.preventDefault();
-  //   console.log('Submitted:', imagePath, imageDescription);
-    
-  //   axios.post('/gallery', {path: imagePath, description: imageDescription})
-  //   .then(response => {
-  //     console.log('You submitted an image!', response);
-  //     getGalleryList();
-  //   })
-  //   .catch(error => {
-  //     console.log('Something went wrong submitting image', error);
-  //     alert('Sorry, something went wrong on the submit.')
-  //   })
-  // }
+  //Request to add photo to DB
+  const addGalleryItem = (newImage) => {
+    newImage.preventDefault();
+    console.log('Submitted:', imagePath, imageDescription);
+    // Route to send data to server, then DB.
+    axios.post('/gallery', {path: imagePath, description: imageDescription})
+    .then(response => {
+      console.log('You submitted an image!', response);
+      //Refresh gallery list
+      getGalleryList();
+    })
+    .catch(error => {
+      console.log('Something went wrong submitting image', error);
+      alert('Sorry, something went wrong on the submit.')
+    })
+  }
 
 
   // Handle like button and PUT route
@@ -66,13 +69,29 @@ function App() {
 
   }
 
+  const deleteImage = ( image ) => {
+
+    //Request to target image Id to delete image.
+    axios.delete(`/gallery/like/${image.id}`)
+    .then(response => {
+      console.log('You deleted a photo!', response);
+      // Refresh Gallery List
+      getGalleryList();
+    })
+    .catch(error => {
+      console.log('Error deleting task:', error)
+    })
+  }
+
+
+
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">REESE'S LIFE GALLERY</h1>
         </header>
         <AddGalleryItem getGalleryList={getGalleryList}/>
-        <GalleryList galleryList={galleryList} upLikes={upLikes} />
+        <GalleryList galleryList={galleryList} upLikes={upLikes} deleteImage={deleteImage}/>
       </div>
     );
 }

@@ -12,7 +12,9 @@
     "react-scripts": "^4.0.1"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "webpack": "^4.44.2",
+    "webpack-node-externals": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts build && node server/server.js",
