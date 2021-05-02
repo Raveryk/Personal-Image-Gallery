@@ -32,23 +32,6 @@ function App() {
 
   }
 
-  //Request to add photo to DB
-  const addGalleryItem = (newImage) => {
-    newImage.preventDefault();
-    console.log('Submitted:', imagePath, imageDescription);
-    // Route to send data to server, then DB.
-    axios.post('/gallery', {path: imagePath, description: imageDescription})
-    .then(response => {
-      console.log('You submitted an image!', response);
-      //Refresh gallery list
-      getGalleryList();
-    })
-    .catch(error => {
-      console.log('Something went wrong submitting image', error);
-      alert('Sorry, something went wrong on the submit.')
-    })
-  }
-
 
   // Handle like button and PUT route
   const upLikes = ( image, event ) => {
