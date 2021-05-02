@@ -13,6 +13,9 @@ function App() {
 
   // Array to store all of the photos from the server
   const [galleryList, setGalleryList] = useState([]);
+  const [imagePath, setImagePath] = useState('');
+  const [imageDescription, setImageDescription] = useState('');
+
 
 
   //GET route to retrieve images from server
@@ -27,6 +30,21 @@ function App() {
       console.log('Something went wrong GETting data from server:', error);
     })
 
+  }
+
+  const addGalleryItem = (newImage) => {
+    newImage.preventDefault();
+    console.log('Submitted');
+    
+    axios.post('/gallery', {path: imagePath, description: imageDescription})
+    .then(response => {
+      console.log('You submitted an image!', response);
+      getGalleryList();
+    })
+    .catch(error => {
+      console.log('Something went wrong submitting image', error);
+      alert('Sorry, something went wrong on the submit.')
+    })
   }
 
 
