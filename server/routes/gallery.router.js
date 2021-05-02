@@ -5,6 +5,39 @@ const pool = require('../modules/pool.js')
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
+
+}); // END PUT Route
+
+// GET Route
+router.get('/', (req, res) => {
+    const sqlText = `SELECT * FROM "images" ORDER BY "id";`;
+    pool.query(sqlText)
+    .then(result => {
+        res.send(result.rows);
+    })
+    .catch(error => {
+        console.log('Error GETting images from DB:', error);
+        res.sendStatus(500);
+    })
+    
+}); // END GET Route
+
+router.post('/', (req, res) => {
+    let newImage = req.body;
+    console.log('Adding new Image:', newImage);
+    
+    const sqlText = `INSERT INTO "images" ("path", "description", "likes")
+    VALUES ($1, $2, $3);`;
+    pool.query(sqlText, [newImage.path, newImage.description, newImage.likes])
+    .then(result => {
+        res.send(201);
+    })
+    .catch(error => {
+        console.log('Error Sending images to DB:', error);
+        res.sendStatus(500)
+    })
+})
+
 // PUT Route
 router.put('/like/:id', (req, res) => {
     console.log(req.params);
@@ -25,37 +58,6 @@ router.put('/like/:id', (req, res) => {
         console.log('Error updating likes:', error);
         res.sendStatus(500);
     })
-    
-}); // END PUT Route
 
-// GET Route
-router.get('/', (req, res) => {
-    const sqlText = `SELECT * FROM "images" ORDER BY "id";`;
-    pool.query(sqlText)
-    .then(result => {
-    res.send(result.rows);
-    })
-    .catch(error => {
-    console.log('Error GETting images from DB:', error);
-    res.sendStatus(500);
-    })
-    
-}); // END GET Route
-
-router.post('/', (req, res) => {
-    let newImage = req.body;
-    console.log('Adding new Image:', newImage);
-
-    const sqlText = `INSERT INTO "images" ("path", "description", "likes")
-                    VALUES ($1, $2, $3);`;
-    pool.query(sqlText, [newImage.path, newImage.description, newImage.likes])
-    .then(result => {
-        res.send(201);
-    })
-    .catch(error => {
-        console.log('Error Sending images to DB:', error);
-        res.sendStatus(500)
-    })
-})
 
 module.exports = router;
