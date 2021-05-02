@@ -38,7 +38,8 @@ function GalleryItem({image, upLikes, deleteImage}) {
     return(
         <div className="oneImage">
         <div onClick={() => toggleImage()} >{ !imageClick ? <img src={image.path}/> : <section className="description" >{image.description}</section> }</div>
-        <div ><button type="submit" className = "likeButton" onClick={() => upLikes(image)}>Love It!!</button> <button className = "deleteButton" onClick={() => deleteImage(image)}>Delete</button>{ buttonText()} </div>
+        <div ><button type="submit" className = "likeButton" onClick={() => upLikes(image)}>Love It!!</button> 
+        <button className = "deleteButton" onClick={() => deleteImage(image)}>Delete</button>{ buttonText()} </div>
         </div>
     )}
 
