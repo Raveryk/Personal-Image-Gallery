@@ -1,7 +1,8 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import './App.css';
-import GalleryList from '../GalleryList/GalleryList'
+import GalleryList from '../GalleryList/GalleryList';
+import AddGalleryItem from '../AddGalleryItem/AddGalleryItem';
 import axios from 'axios';
 
 function App() {
@@ -13,9 +14,7 @@ function App() {
 
   // Array to store all of the photos from the server
   const [galleryList, setGalleryList] = useState([]);
-  const [imagePath, setImagePath] = useState('');
-  const [imageDescription, setImageDescription] = useState('');
-
+  
 
 
   //GET route to retrieve images from server
@@ -32,20 +31,20 @@ function App() {
 
   }
 
-  const addGalleryItem = (newImage) => {
-    newImage.preventDefault();
-    console.log('Submitted');
+  // const addGalleryItem = (newImage) => {
+  //   newImage.preventDefault();
+  //   console.log('Submitted:', imagePath, imageDescription);
     
-    axios.post('/gallery', {path: imagePath, description: imageDescription})
-    .then(response => {
-      console.log('You submitted an image!', response);
-      getGalleryList();
-    })
-    .catch(error => {
-      console.log('Something went wrong submitting image', error);
-      alert('Sorry, something went wrong on the submit.')
-    })
-  }
+  //   axios.post('/gallery', {path: imagePath, description: imageDescription})
+  //   .then(response => {
+  //     console.log('You submitted an image!', response);
+  //     getGalleryList();
+  //   })
+  //   .catch(error => {
+  //     console.log('Something went wrong submitting image', error);
+  //     alert('Sorry, something went wrong on the submit.')
+  //   })
+  // }
 
 
   // Handle like button and PUT route
@@ -72,6 +71,7 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">REESE'S LIFE GALLERY</h1>
         </header>
+        <AddGalleryItem getGalleryList={getGalleryList}/>
         <GalleryList galleryList={galleryList} upLikes={upLikes} />
       </div>
     );

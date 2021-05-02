@@ -46,9 +46,9 @@ router.post('/', (req, res) => {
     let newImage = req.body;
     console.log('Adding new Image:', newImage);
 
-    const sqlText = `INSERT INTO "images" ("path", "description")
-                    VALUES ($1, $2);`;
-    pool.query(sqlText, [newImage.path, newImage.description])
+    const sqlText = `INSERT INTO "images" ("path", "description", "likes")
+                    VALUES ($1, $2, $3);`;
+    pool.query(sqlText, [newImage.path, newImage.description, newImage.likes])
     .then(result => {
         res.send(201);
     })
