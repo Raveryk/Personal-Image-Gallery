@@ -9,7 +9,7 @@ INSERT INTO "images" ("path", "description", "likes")
 VALUES ('images/goat_small.jpg', 'Photo of a goat taken at Glacier National Park.', 0 ),
     ('images/Drums.jpg', 'My drums set up at a recent gig.', 0),
     ('images/Family.jpg', 'My parent''s backyard the evening of my wedding on 8/7/2020. It was during COVID and we made it a very small outdoor celebration.', 0),
-    ('images/Tartine.jpg', 'I love to cook and bake and this book has guided my sourdough bread baking.', 0),
+    ('https://images-na.ssl-images-amazon.com/images/I/91aFNp1FLML.jpg', 'I love to cook and bake and this book has guided my sourdough bread baking.', 0),
     ('images/Duluth.jpg', 'I love to hike whenever I get the chance. This is the lookout on Ely''s Peak near Duluth, MN.', 0),
     ('images/Running.jpg', 'In the last year I have adopted running and love it! These are my shoes.', 0),
     ('images/Car.jpg', 'I drive a Honda Fit!!.', 0),
