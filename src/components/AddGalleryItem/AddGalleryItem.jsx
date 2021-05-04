@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import Button from "@material-ui/core/Button";
 import Input from "@material-ui/core/Input";
+import swal from 'sweetalert';
 
 function AddGalleryItem({ getGalleryList }) {
   const [imagePath, setImagePath] = useState("");
@@ -22,6 +23,10 @@ function AddGalleryItem({ getGalleryList }) {
       })
       .then((response) => {
         console.log("You submitted an image!", response);
+        swal({
+          title: 'Photo Added',
+          icon: "success",
+        })
         //clear inputs
         setImagePath("");
         setImageDescription("");

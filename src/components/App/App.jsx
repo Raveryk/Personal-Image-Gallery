@@ -4,6 +4,7 @@ import "./App.css";
 import GalleryList from "../GalleryList/GalleryList";
 import AddGalleryItem from "../AddGalleryItem/AddGalleryItem";
 import axios from "axios";
+import swal from 'sweetalert';
 
 function App() {
   //Renders page on initial page load
@@ -48,16 +49,33 @@ function App() {
 
   const deleteImage = (image) => {
     //Request to target image Id to delete image.
-    axios
-      .delete(`/gallery/like/${image.id}`)
-      .then((response) => {
-        console.log("You deleted a photo!", response);
-        // Refresh Gallery List
-        getGalleryList();
-      })
-      .catch((error) => {
-        console.log("Error deleting task:", error);
-      });
+  
+    swal({
+      title: "Are you sure?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+
+    })
+    .then((willDelete) => {
+      if(willDelete) {
+          axios
+          .delete(`/gallery/like/${image.id}`)
+          .then((response) => {
+            console.log("You deleted a photo!", response);
+            swal("Image deleted.", {icon:"success"})
+            // Refresh Gallery List
+            getGalleryList();
+          })
+          .catch((error) => {
+            console.log("Error deleting task:", error);
+          });
+
+      } else {
+
+      }
+    })
+    
   };
 
   return (
