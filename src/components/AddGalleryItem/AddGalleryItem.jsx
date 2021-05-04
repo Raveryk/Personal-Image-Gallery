@@ -14,6 +14,12 @@ function AddGalleryItem({ getGalleryList }) {
   const addGalleryItem = (newImage) => {
     newImage.preventDefault();
     console.log("Submitted:", imagePath, imageDescription, imageLikes);
+    
+   //Conditional to check to see if the inputs are empty or not.
+    if( imagePath  === '' || imageDescription === '' ) {
+      alert('Please enter text into input fields')
+    } else {
+
     // Send to image data to server
     axios
       .post("/gallery", {
@@ -37,18 +43,21 @@ function AddGalleryItem({ getGalleryList }) {
         console.log("Something went wrong submitting image", error);
         alert("Sorry, something went wrong on the submit.");
       });
+    }
   };
 
   return (
     <div className="form">
       <form>
         <Input
+          className="pathInput"
           value={imagePath}
           type="url"
           placeholder="Image URL"
           onChange={(event) => setImagePath(event.target.value)}
         />
         <Input
+          className="descriptionInput"
           value={imageDescription}
           type="text"
           placeholder="Description"
