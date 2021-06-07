@@ -8,7 +8,7 @@
     border: 1px solid black;
     position: static;
     margin: 2%;
-    height: 340px;
+    height: auto;
     box-shadow: 10px 5px 5px rgb(0, 0, 0) ;
     font-family: Roboto;
 }
@@ -16,19 +16,23 @@
 .description {
     
     /* border: 1px solid black; */
-    width: 260px;
-    height: 260px;
+    width: 230px;
+    height: 220px;
+    max-width: 230px;
+    max-height: 260px;
     display: flex;
     align-items: center;
 
 }
 
-img {
+.img {
     /* border: 1px solid rgb(199, 199, 199); */
-    width: 260px;
-    height: 260px;
-    display: flex;
-    align-items: flex-start;
+    width: auto;
+    height: auto;
+    max-width: 230px;
+    max-height: 260px;
+    display: block;
+    /* align-items: flex-start; */
 
 }
 

@@ -1,14 +1,10 @@
 .images {
 
+    text-align: center;
+    padding: 100px;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-right: 10%;
-    margin-left: 10%;
-    align-items: center;
     justify-content: center;
-    border-radius: 8px;
-    padding: 4%;
+    align-items: center;
 
 }
 

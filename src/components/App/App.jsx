@@ -48,6 +48,7 @@ function App() {
   };
 
   const deleteImage = (image) => {
+
     //Request to target image Id to delete image.
   
     swal({

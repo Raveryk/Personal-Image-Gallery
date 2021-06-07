@@ -6,6 +6,7 @@ import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import Paper from "@material-ui/core/Paper";
 
 function GalleryItem({ image, upLikes, deleteImage }) {
+  
   //Container for my image click boolean value
   let [imageClick, setImageClick] = useState(false);
 
@@ -32,7 +33,7 @@ function GalleryItem({ image, upLikes, deleteImage }) {
     <Paper elevation={10} variant="outlined" className="oneImage">
       <div onClick={() => toggleImage()}>
         {!imageClick ? (
-          <img src={image.path} />
+          <img className="img" src={image.path} />
         ) : (
           <section className="description">{image.description}</section>
         )}
