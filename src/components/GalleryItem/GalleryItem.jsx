@@ -1,11 +1,40 @@
 import "./GalleryItem.css";
 import { useState } from "react";
-import Button from "@material-ui/core/Button";
+import { Box, Button, Card, makeStyles } from "@material-ui/core";
 import Delete from "@material-ui/icons/Delete";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
-import Paper from "@material-ui/core/Paper";
 
 function GalleryItem({ image, upLikes, deleteImage }) {
+
+  const useStyles = makeStyles(() => ({
+    card: {
+        borderRadius: 5,
+        padding: '75px 50px',
+        margin: '0px 25px',
+        width: '500px',
+        boxShadow: '20px 20px 20px black',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        height: '250px',
+    },
+    imageBottom: {
+      width: '100%',
+      marginTop: 20,
+  },
+    Box: {
+      display: 'flex',
+      
+    },
+    imageBox: {
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      
+    }
+}));
+
+  const classes = useStyles();
   
   //Container for my image click boolean value
   let [imageClick, setImageClick] = useState(false);
@@ -30,15 +59,16 @@ function GalleryItem({ image, upLikes, deleteImage }) {
   };
 
   return (
-    <Paper elevation={10} variant="outlined" className="oneImage">
+    <Card elevation={10} variant="outlined" className={classes.card}>
       <div onClick={() => toggleImage()}>
         {!imageClick ? (
-          <img className="img" src={image.path} />
+       <div className={classes.imageBox}> <img className="img" src={image.path} /> </div>
         ) : (
           <section className="description">{image.description}</section>
         )}
       </div>
-      <div className="imageBottom">
+      <Box className={classes.box}>
+      <div className={classes.imageBottom}>
         <Button
           startIcon={<ThumbUpIcon />}
           type="submit"
@@ -56,7 +86,8 @@ function GalleryItem({ image, upLikes, deleteImage }) {
         </Button>
         {buttonText()}{" "}
       </div>
-    </Paper>
+      </Box>
+    </Card>
   );
 }
 
